@@ -1,0 +1,28 @@
+{
+  "name": "opmvpc/structures_donnees",
+  "description": "Exercices POO Structures de données",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Opmvpc\\StructuresDonnees\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "opmvpc",
+      "email": "thibsix@outlook.be"
+    }
+  ],
+  "require-dev": {
+    "pestphp/pest": "^2.20"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest"
+  },
+  "license": "proprietary"
+}
