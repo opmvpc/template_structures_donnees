@@ -10,6 +10,7 @@ class ArrayList implements ListInterface
 
     public function __construct()
     {
+
         $this->elements = [];
     }
 
@@ -20,7 +21,7 @@ class ArrayList implements ListInterface
 
     public function push(mixed $element = null): void {
 
-        $this->elements[]=$element;
+        $this->elements[] = $element;
     }
 
     public function get(int $index): mixed {
@@ -28,28 +29,49 @@ class ArrayList implements ListInterface
     }
 
     public function set(int $index, mixed $element): void {
-        $this->elements[]
+        $this->elements[$index]=$element;
     }
 
     public function clear(): void {
         $this->elements = [];
     }
-    public function includes(mixed $element): bool {}
+    public function includes(mixed $element): bool {
+        return in_array($element, $this->elements);
+    }
 
     public function isEmpty(): bool {
-
-        if (empty($element)) {
-            echo '$element is either 0, empty, or not set at all';
+     /*   if(count($this->elements) === 0){
+            return true;
+        }
+           else{return false;
+        }
+    }*/
+        if($this->elements === []){
+            return true;
+        }else{
+            return false;
         }
     }
-
     public function indexOf(mixed $element): int {
-        array_search($index,$elements);
+        
+        //return array_search($element,$this->elements);
+
+        foreach($this->elements as $key=>$value){
+            if($value === $element){
+                return $key;
+            }
+        }
+
     }
 
-    public function remove(int $index): void {}
+    public function remove(int $index): void {
+        unset($this->elements[$index]);
+    }
 
-    public function size(): int {}
+    public function size(): int {
+        return count($this->elements);
+    
+    }
 
     public function toArray(): array {}
 }
