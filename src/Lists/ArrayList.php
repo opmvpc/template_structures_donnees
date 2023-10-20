@@ -58,7 +58,8 @@ class ArrayList implements ListInterface
 
         foreach($this->elements as $key=>$value){
             if($value === $element){
-                return $key;
+                return $key; 
+                //juyhgiugfy
             }
         }
 
