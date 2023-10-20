@@ -10,6 +10,7 @@ class ArrayList implements ListInterface
 
     public function __construct()
     {
+
         $this->elements = [];
     }
 
@@ -18,23 +19,64 @@ class ArrayList implements ListInterface
         return json_encode($this->elements, JSON_PRETTY_PRINT);
     }
 
-    public function push(mixed $element = null): void {}
+    public function push(mixed $element = null): void {
 
-    public function get(int $index): mixed {}
+        $this->elements[] = $element;
+    }
 
-    public function set(int $index, mixed $element): void {}
+    public function get(int $index): mixed {
+    return $this->elements[$index];
+    }
 
-    public function clear(): void {}
+    public function set(int $index, mixed $element): void {
+        $this->elements[$index]=$element;
+    }
 
-    public function includes(mixed $element): bool {}
+    public function clear(): void {
+        $this->elements = [];
+    }
+    public function includes(mixed $element): bool {
+        return in_array($element, $this->elements);
+    }
 
-    public function isEmpty(): bool {}
+    public function isEmpty(): bool {
+     /*   if(count($this->elements) === 0){
+            return true;
+        }
+           else{return false;
+        }
+    }*/
+        if($this->elements === []){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function indexOf(mixed $element): int {
+        
+        //return array_search($element,$this->elements);
 
-    public function indexOf(mixed $element): int {}
+        foreach($this->elements as $key=>$value){
+            if($value === $element){
+                return $key; 
+                //juyhgiugfy
+            }
+        }
 
-    public function remove(int $index): void {}
+    }
 
-    public function size(): int {}
+    public function remove(int $index): void {
+        unset($this->elements[$index]);
+    }
+
+    public function size(): int {
+        return count($this->elements);
+    
+    }
 
     public function toArray(): array {}
 }
+/*
+if (array_key_exists($index, $elements)) {
+    echo $element . " element is in the array";
+}*/
